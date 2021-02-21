@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class PageBase extends PageGenerator {
 
-
+LoginPage loginPage=new LoginPage();
     @FindBy(xpath = "//a[@id='navbarDropdown']/span")
     public WebElement accountUserName;
 

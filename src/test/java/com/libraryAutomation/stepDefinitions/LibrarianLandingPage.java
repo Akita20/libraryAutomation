@@ -1,13 +1,15 @@
 package com.libraryAutomation.stepDefinitions;
 
+import com.libraryAutomation.pages.PageBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class LibrarianLandingPage {
+public class LibrarianLandingPage
+{
+
     @Given("the librarian on the homepage")
     public void the_librarian_on_the_homepage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
 
