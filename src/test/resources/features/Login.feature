@@ -1,7 +1,13 @@
-Feature:
+Feature:Login LogOut
 
-  Scenario:
-    Given
-    When
-    And
-    Then
+  Scenario: verify both Students and librarians login
+
+    Given the user login as a <role>
+    Then the user on  <page>
+
+      | role       | page      |
+      | student    | books.    |
+      | librarian# | Dashboard |
+
+ Scenario: As a user, I should be able to logout from the library app.
+

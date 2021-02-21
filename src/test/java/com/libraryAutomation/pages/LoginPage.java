@@ -27,6 +27,7 @@ public class LoginPage {
 
     }
     public void loginAsLibrary() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         String username = ConfigurationReader.getProperty("libUserName");
         String password = ConfigurationReader.getProperty("libPassword");
         usernameInput.sendKeys(username);
@@ -35,6 +36,7 @@ public class LoginPage {
 
     }
     public void loginAsStudent() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         String username = ConfigurationReader.getProperty("stuUserName11");
         String password = ConfigurationReader.getProperty("stuPassword11");
         usernameInput.sendKeys(username);

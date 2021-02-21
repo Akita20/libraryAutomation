@@ -10,36 +10,38 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
-    private static WebDriver driver;
+    private static final ThreadLocal<WebDriver> driverPoll = new ThreadLocal<>();
+
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driverPoll.get() == null) {
             Browser browser = Browser.valueOf(ConfigurationReader.getProperty("browser"));
             switch (browser) {
                 case chrome:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                    driverPoll.set(new ChromeDriver());
+                    driverPoll.get().manage().window().maximize();
+                    driverPoll.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                     break;
                 case fireFox:
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                    driverPoll.set(new FirefoxDriver());
+                    driverPoll.get().manage().window().maximize();
+                    driverPoll.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                     break;
                 case safari:
-                    driver = new SafariDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                    driverPoll.set(new SafariDriver());
+                    driverPoll.get().manage().window().maximize();
+                    driverPoll.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                     break;
             }
         }
-        return driver;
+        return driverPoll.get();
     }
-    public static void closeDriver(){
-        if (driver != null){
-            driver.quit();
-            driver=null;
+
+    public static void closeDriver() {
+        if (driverPoll.get() != null) {
+            driverPoll.get().quit();
+            driverPoll.remove();
         }
     }
 

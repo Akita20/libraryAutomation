@@ -15,7 +15,7 @@ public class ConfigurationReader {
 
     static {
         try {
-            FileInputStream file= new FileInputStream("configuration.properties");
+            FileInputStream file= new FileInputStream("configuration.properties");//open the file
             // #3 -
             properties.load(file);
 
