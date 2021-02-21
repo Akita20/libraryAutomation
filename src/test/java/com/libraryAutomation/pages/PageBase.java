@@ -5,22 +5,44 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class PageBase {
-    public PageBase(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
-    @FindBy(linkText = "Users")
-    public WebElement usersPageLink;
+import java.util.List;
 
-    @FindBy(linkText = "Books" )
-    public WebElement booksPageLink;
+public abstract class PageBase extends PageGenerator {
 
 
-    @FindBy(linkText = "Dashboard" )
-    public WebElement dashboardPageLink;
+//    @FindBy(linkText = "Users")
+//    public WebElement usersPageLink;
+//
+//    @FindBy(linkText = "Books")
+//    public WebElement booksPageLink;
+//
+//    @FindBy(linkText = "Dashboard")
+//    public WebElement dashboardPageLink;
 
-    @FindBy( xpath = "//a[@id='navbarDropdown']/span")
+    @FindBy(xpath = "//a[@id='navbarDropdown']/span")
     public WebElement accountUserName;
+
+    @FindBy(xpath = "//section[@id='dashboard']")
+    public WebElement sectionDashboard;//used to verify that librarian land to dashboard
+
+    @FindBy(xpath = "//a[@class='nav-link']/span[1]")
+    public List<WebElement> navigationBar;//this does not include the avatar
+
+    @FindBy(xpath = "//a[@class='dropdown-item']")
+    public WebElement logOutButton;
+
+    public void navigatingThroughNavigationBar(String text) {
+        for (WebElement element : navigationBar) {
+            if (element.getText().equalsIgnoreCase(text)) {
+                element.click();
+            }
+        }
+    }
+
+    public void logOut() {
+        accountUserName.click();
+        logOutButton.click();
+    }
 
 
 
