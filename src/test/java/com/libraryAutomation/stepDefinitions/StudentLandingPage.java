@@ -1,29 +1,27 @@
 package com.libraryAutomation.stepDefinitions;
 
+import com.libraryAutomation.pages.LoginPage;
+import com.libraryAutomation.pages.PageBase;
+import com.libraryAutomation.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import jdk.javadoc.internal.doclets.formats.html.Contents;
-import jdk.tools.jlink.resources.plugins;
-import sun.tools.jar.resources.jar;
+import org.junit.Assert;
 
-public class StudentLandingPage {
 
+import java.util.List;
+
+public class StudentLandingPage extends PageBase {
+LoginPage loginPage=new LoginPage();
     @Given("the student on the home page")
     public void the_student_on_the_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      loginPage.loginAsStudent();
     }
 
-    @Then("the user should see following modules")
-    public void the_user_should_see_following_modules(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
-    }
 
+
+    @Then("the user should see following modules in dashboard page")
+    public void theUserShouldSeeFollowingModulesInDashboardPage(List<String> headers) {
+        Assert.assertEquals(headers, BrowserUtils.convertWebElementToString_andGetText(navigationBar));
+
+    }
 }

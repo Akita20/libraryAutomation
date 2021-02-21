@@ -24,6 +24,7 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -50,6 +51,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+
                             <projectName>Cucumber HTML Reports</projectName>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>

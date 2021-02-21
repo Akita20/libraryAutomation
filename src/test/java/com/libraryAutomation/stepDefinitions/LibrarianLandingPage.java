@@ -1,29 +1,33 @@
 package com.libraryAutomation.stepDefinitions;
 
+import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.pages.PageBase;
+import com.libraryAutomation.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
-public class LibrarianLandingPage
-{
+import java.util.List;
+
+public class LibrarianLandingPage extends PageBase {
+    LoginPage loginPage = new LoginPage();
 
     @Given("the librarian on the homepage")
     public void the_librarian_on_the_homepage() {
-
+        loginPage.loginAsLibrary();
     }
 
 
     @Then("the user should see following modules")
-    public void the_user_should_see_following_modules(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+    public void the_user_should_see_following_modules(List<String> headers) {
+        Assert.assertEquals(headers, BrowserUtils.convertWebElementToString_andGetText(navigationBar));
+
     }
 
 
+    @Then("the user should see following modules in books Page")
+    public void theUserShouldSeeFollowingModulesInBooksPage(List<String>headers) {
+        Assert.assertEquals(headers, BrowserUtils.convertWebElementToString_andGetText(navigationBar));
+
+    }
 }
