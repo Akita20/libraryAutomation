@@ -36,10 +36,6 @@ public class BookCategories_StepDefinitions {
         Select select = new Select(booksPage.selectBookCategories);
         BrowserUtils.clickOn(booksPage.selectBookCategories,15,category);
         select.selectByVisibleText(category);
-        select=new Select(booksPage.showRecords);
-        BrowserUtils.waitForVisibility(booksPage.showRecords,20);
-        select.selectByVisibleText("100");
-
 
     }
 
@@ -53,7 +49,7 @@ public class BookCategories_StepDefinitions {
             BrowserUtils.waitForVisibility(element,30);
             actualText.add(element.getText());
         }
-        for (String s : actualText) Assert.assertEquals(s, expectedCategory);
+        for (String eachLine : actualText) Assert.assertEquals(eachLine, expectedCategory);
     }
 
 
