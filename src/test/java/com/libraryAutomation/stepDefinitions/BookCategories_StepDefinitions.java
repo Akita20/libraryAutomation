@@ -5,6 +5,7 @@ import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.eo.Se;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -33,25 +34,27 @@ public class BookCategories_StepDefinitions {
     @Then("Student selects {string} from category dropdown")
     public void student_selects_from_category_dropdown(String category) {
         Select select = new Select(booksPage.selectBookCategories);
-        BrowserUtils.sleep(3);
+        BrowserUtils.clickOn(booksPage.selectBookCategories,15,category);
         select.selectByVisibleText(category);
+        select=new Select(booksPage.showRecords);
+        BrowserUtils.waitForVisibility(booksPage.showRecords,20);
+        select.selectByVisibleText("500");
+
 
     }
 
 
     @Then("Student should see all the books from that {string}")
     public void studentShouldSeeAllTheBooksFromThat(String expectedCategory) {
-        BrowserUtils.sleep(3);
-        List<WebElement> actual=booksPage.listOfSelectedCategories;
-        Set<String> actualText=new LinkedHashSet<>();
-        for (WebElement element:actual){
+
+        List<WebElement> actual = booksPage.listOfSelectedCategories;
+        Set<String> actualText = new LinkedHashSet<>();
+        for (WebElement element : actual) {
+            BrowserUtils.waitForVisibility(element,30);
             actualText.add(element.getText());
         }
-
-       // Assert.assertEquals(actualText,);
-
-
-
-
+        for (String s : actualText) Assert.assertEquals(s, expectedCategory);
     }
+
+
 }

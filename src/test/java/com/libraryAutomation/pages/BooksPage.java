@@ -26,6 +26,9 @@ public class BooksPage extends PageBase {
     @FindBy(xpath = "//table//tr//td[5]")
     public List<WebElement> listOfSelectedCategories;
 
+    @FindBy(name= "tbl_books_length")
+    public WebElement showRecords;
+
     public List<String> getAllBookCategories() {
         List<String> categoriesText = new ArrayList<>();
         Select select = new Select(selectBookCategories);
@@ -39,6 +42,7 @@ public class BooksPage extends PageBase {
         select.selectByVisibleText(string);
         BrowserUtils.sleep(3);
     }
+
 
 //    public String getCategoryText() {
 //        String category = "";

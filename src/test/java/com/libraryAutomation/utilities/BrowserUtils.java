@@ -1,6 +1,5 @@
 package com.libraryAutomation.utilities;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,11 +26,11 @@ public class BrowserUtils {
         actions.moveToElement(element).perform();
     }
 
-    public static String clickOn(WebElement element, int timeout,String text) {
+    public static void clickOn(WebElement element, int timeout, String text) {
         final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         wait.until(ExpectedConditions.refreshed(
-                ExpectedConditions.textToBePresentInElement(element,text)));
-       return element.getText();
+                ExpectedConditions.textToBePresentInElement(element, text)));
+        element.click();
     }
 
     //this method accepts List<WebElement> and returns List<String>
@@ -39,13 +38,13 @@ public class BrowserUtils {
         List<String> textsOfWebElement = new LinkedList<>();
 
         for (WebElement element : elements) {
-            textsOfWebElement.add(waitForVisibility(element,20).getText());
+            textsOfWebElement.add(waitForVisibility(element, 20).getText());
         }
         return textsOfWebElement;
     }
 
     // The method takes an element and takes the text you want to send by waiting explicitly and returns text as a String
-    public static String sendTheKeys(WebElement element,  String text) {
+    public static String sendTheKeys(WebElement element, String text) {
         final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 7);
         wait.until(ExpectedConditions.refreshed(
                 ExpectedConditions.elementToBeClickable(element)));
@@ -56,7 +55,7 @@ public class BrowserUtils {
     // wait method for element until Visible by WebElement
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
-        return wait.until(ExpectedConditions.visibilityOf(element));
+        return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
     }
 
     // wait method for webElement until Clickable
