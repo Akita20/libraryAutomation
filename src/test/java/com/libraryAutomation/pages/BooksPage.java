@@ -2,15 +2,17 @@ package com.libraryAutomation.pages;
 
 import com.libraryAutomation.utilities.BrowserUtils;
 import com.libraryAutomation.utilities.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class BooksPage extends PageBase {
     public BooksPage() {
@@ -32,23 +34,34 @@ public class BooksPage extends PageBase {
         return categoriesText;
     }
 
-    public void selectCategory(String string){
+    public void selectCategory(String string) {
         Select select = new Select(selectBookCategories);
         select.selectByVisibleText(string);
         BrowserUtils.sleep(3);
     }
 
-    public String getCategoryText() {
-        String category = "";
-        List<String> categories = new ArrayList<>();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOfAllElements(listOfSelectedCategories));
-        listOfSelectedCategories.forEach(p -> categories.add(p.getText()));
-        for (int i = 0; i < categories.size(); i++) {
-            if (categories.get(0).equals(categories.get(i)))
-                category = categories.get(0);
-        }
-        return category;
-    }
-
+//    public String getCategoryText() {
+//        String category = "";
+//        List<String> categories = new ArrayList<>();
+//        // WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+//        // wait.until(ExpectedConditions.visibilityOfAllElements(listOfSelectedCategories));
+//        //listOfSelectedCategories.forEach(p -> categories.add(p.getText()));
+////        int j=0;
+////        for (WebElement element : listOfSelectedCategories) {
+////           String text =BrowserUtils.clickOn((//table//tr//td[5])[j++],30);
+////           categories.add(text);
+////        }
+////        for (int i = 0; i < categories.size(); i++) {
+////            if (categories.get(0).equals(categories.get(i)))
+////                category = categories.get(0);
+////        }
+////        return category;
+////    }
+//
+////    public String getCategory(String categoryName){
+////
+////    }
+//
+//    }
 }
+

@@ -3,16 +3,13 @@ package com.libraryAutomation.stepDefinitions;
 import com.libraryAutomation.pages.BooksPage;
 import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.utilities.BrowserUtils;
-import com.libraryAutomation.utilities.ConfigurationReader;
-import com.libraryAutomation.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+import java.util.*;
 
 public class BookCategories_StepDefinitions {
     BooksPage booksPage = new BooksPage();
@@ -21,6 +18,7 @@ public class BookCategories_StepDefinitions {
     public void user_logs_in_as_student() {
         LoginPage loginPage = new LoginPage();
         loginPage.loginAsStudent();
+        booksPage.booksPageLink.click();
     }
 
     @Then("Student should see below info in book categories dropdown")
@@ -37,13 +35,23 @@ public class BookCategories_StepDefinitions {
         Select select = new Select(booksPage.selectBookCategories);
         BrowserUtils.sleep(3);
         select.selectByVisibleText(category);
+
     }
+
 
     @Then("Student should see all the books from that {string}")
-    public void student_should_see_all_the_books_from_that_category(String expectedCategory) {
-        String actualCategory = booksPage.getCategoryText();
+    public void studentShouldSeeAllTheBooksFromThat(String expectedCategory) {
         BrowserUtils.sleep(3);
-        Assert.assertEquals(expectedCategory, actualCategory);
-    }
+        List<WebElement> actual=booksPage.listOfSelectedCategories;
+        Set<String> actualText=new LinkedHashSet<>();
+        for (WebElement element:actual){
+            actualText.add(element.getText());
+        }
 
+       // Assert.assertEquals(actualText,);
+
+
+
+
+    }
 }

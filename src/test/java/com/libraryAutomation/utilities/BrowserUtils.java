@@ -1,5 +1,6 @@
 package com.libraryAutomation.utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,11 +27,11 @@ public class BrowserUtils {
         actions.moveToElement(element).perform();
     }
 
-    public static void clickOn(WebElement element, int timeout) {
+    public static String clickOn(WebElement element, int timeout,String text) {
         final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         wait.until(ExpectedConditions.refreshed(
-                ExpectedConditions.elementToBeClickable(element)));
-        element.click();
+                ExpectedConditions.textToBePresentInElement(element,text)));
+       return element.getText();
     }
 
     //this method accepts List<WebElement> and returns List<String>
@@ -38,7 +39,7 @@ public class BrowserUtils {
         List<String> textsOfWebElement = new LinkedList<>();
 
         for (WebElement element : elements) {
-            textsOfWebElement.add(element.getText());
+            textsOfWebElement.add(waitForVisibility(element,20).getText());
         }
         return textsOfWebElement;
     }
