@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPageLibrarian extends PageBase{
+public class LandingPageLibrarian_DashboardPage extends PageBase{
 
-    public LandingPageLibrarian(){
+    public LandingPageLibrarian_DashboardPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 

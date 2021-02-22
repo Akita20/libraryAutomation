@@ -1,9 +1,8 @@
 package com.libraryAutomation.stepDefinitions;
 
-import com.libraryAutomation.pages.LandingPageLibrarian;
-import com.libraryAutomation.pages.LandingPageStudent_BooksPage;
+import com.libraryAutomation.pages.LandingPageLibrarian_DashboardPage;
 import com.libraryAutomation.pages.LoginPage;
-import com.libraryAutomation.pages.UsersPageLibrarian;
+import com.libraryAutomation.pages.UsersPageLibrarianDashboardPage;
 import com.libraryAutomation.utilities.BrowserUtils;
 import com.libraryAutomation.utilities.ConfigurationReader;
 import com.libraryAutomation.utilities.Driver;
@@ -17,11 +16,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class GroupCatogory_Definition extends UsersPageLibrarian {
+public class GroupCatogory_Definition extends UsersPageLibrarianDashboardPage {
 
    LoginPage loginPage= new LoginPage();
-   UsersPageLibrarian usersPage= new UsersPageLibrarian();
-   LandingPageLibrarian landingPageLibrarian  = new LandingPageLibrarian();
+   UsersPageLibrarianDashboardPage usersPage= new UsersPageLibrarianDashboardPage();
+   LandingPageLibrarian_DashboardPage landingPageLibrarianDashboardPage = new LandingPageLibrarian_DashboardPage();
    Select select;
    WebDriverWait wait= new WebDriverWait(Driver.getDriver(),5);
 
@@ -29,14 +28,14 @@ public class GroupCatogory_Definition extends UsersPageLibrarian {
     public void theUserOnTheLibrarianHomepage() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
      loginPage.loginAsLibrary();
-        BrowserUtils.waitForVisibility(landingPageLibrarian.dashboardPageLink,3);
+        BrowserUtils.waitForVisibility(landingPageLibrarianDashboardPage.dashboardPageLink,3);
     }
 
 
     @When("the user click users moudle")
     public void the_user_click_users_moudle() {
 
-      landingPageLibrarian.usersPageLink.click();
+      landingPageLibrarianDashboardPage.usersPageLink.click();
     }
     @When("the user click User Group dropdown")
     public void the_user_click_user_group_dopdown() {
