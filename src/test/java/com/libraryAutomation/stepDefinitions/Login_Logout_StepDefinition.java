@@ -28,7 +28,7 @@ public class Login_Logout_StepDefinition extends PageBase {
         loginPage.signInButton.click();
     }
 
-// Verify the Books is in the Student url
+    // Verify the Books is in the Student url
     @Given("books is student in the student page")
     public void books_is_student_in_the_student_page() {
         wait.until(ExpectedConditions.urlContains("books"));
@@ -37,7 +37,8 @@ public class Login_Logout_StepDefinition extends PageBase {
         Assert.assertTrue(actualUrl.equals(expectedUrl));
 
     }
-//Librarian login verification
+
+    //Librarian login verification
     @Given("the librarian login with {string} and {string}")
     public void the_librarian_login_with_and(String userName, String passWord) {
         loginPage.usernameInput.sendKeys(userName);
@@ -83,6 +84,29 @@ public class Login_Logout_StepDefinition extends PageBase {
 
     }
 
+    @Given("I am on the login page")
+    public void i_am_on_the_login_page() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+    }
+
+    @Given("I login as a librarian")
+    public void i_login_as_a_librarian() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        loginPage.loginAsLibrary();
+
+    }
+
+    @Then("dashboard should be displayed")
+    public void dashboard_should_be_displayed() {
+
+    }
+
+    @Given("I login as a student")
+    public void i_login_as_a_student() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        loginPage.loginAsStudent();
+
+    }
 
 
 }
