@@ -1,7 +1,7 @@
 package com.libraryAutomation.stepDefinitions;
 
 
-import com.libraryAutomation.pages.LandingPage;
+import com.libraryAutomation.pages.LandingPageLibrarian;
 import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.pages.PageBase;
 import com.libraryAutomation.utilities.BrowserUtils;
@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login_Logout_StepDefinition extends PageBase {
     LoginPage loginPage = new LoginPage();
-    LandingPage landingPage = new LandingPage();
+    LandingPageLibrarian landingPageLibrarian = new LandingPageLibrarian();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     //Student login verification
@@ -69,9 +69,9 @@ public class Login_Logout_StepDefinition extends PageBase {
     @When("user click the logout button")
     public void user_Click_The_Logout_Button() {
         BrowserUtils.sleep(2);
-        landingPage.logoutDropdown.click();
+        landingPageLibrarian.logoutDropdown.click();
         BrowserUtils.sleep(1);
-        landingPage.logOutButton.click();
+        landingPageLibrarian.logOutButton.click();
 
     }
 

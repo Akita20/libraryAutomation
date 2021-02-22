@@ -7,15 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class PageBase extends PageGenerator {
 
-    @FindBy(linkText = "Users")
-    public WebElement usersPageLink;
-
-    @FindBy(linkText = "Books" )
-    public WebElement booksPageLink;
-
-
-    @FindBy(linkText = "Dashboard" )
-    public WebElement dashboardPageLink;
 
     @FindBy( xpath = "//a[@id='navbarDropdown']/span")
     public WebElement accountUserName;

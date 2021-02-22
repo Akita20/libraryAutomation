@@ -7,10 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class UsersPage extends LandingPage{
-    public UsersPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
+public class UsersPageLibrarian extends LandingPageLibrarian {
+
 
     @FindBy(xpath= "//select[@name='tbl_users_length']")
     public WebElement showRecordsDropdown;

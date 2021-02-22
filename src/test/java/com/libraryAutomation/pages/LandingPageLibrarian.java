@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPage extends PageBase{
+public class LandingPageLibrarian extends PageBase{
 
-    public LandingPage(){
+    public LandingPageLibrarian(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
@@ -16,5 +16,11 @@ public class LandingPage extends PageBase{
 
     @FindBy(xpath = "//a[@class='dropdown-item']")
     public WebElement logOutButton;
+
+    @FindBy(linkText = "Dashboard" )
+    public WebElement dashboardPageLink;
+
+    @FindBy(linkText = "Users")
+    public WebElement usersPageLink;
 
 }

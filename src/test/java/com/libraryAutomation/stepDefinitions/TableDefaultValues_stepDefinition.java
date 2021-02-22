@@ -1,6 +1,6 @@
 package com.libraryAutomation.stepDefinitions;
 
-import com.libraryAutomation.pages.BooksPage;
+import com.libraryAutomation.pages.LandingPageStudent_BooksPage;
 import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.utilities.BrowserUtils;
 import com.libraryAutomation.utilities.Driver;
@@ -14,7 +14,7 @@ import java.util.List;
 public class TableDefaultValues_stepDefinition {
     WebDriver driver = Driver.getDriver();
     LoginPage loginPage = new LoginPage();
-    BooksPage books = new BooksPage();
+    LandingPageStudent_BooksPage books = new LandingPageStudent_BooksPage();
 
     @Given("the user on the homepage")
     public void the_user_on_the_homepage() {

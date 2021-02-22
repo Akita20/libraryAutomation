@@ -7,8 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class BooksPage extends PageBase {
-    public BooksPage(){
+public class LandingPageStudent_BooksPage extends PageBase {
+    public LandingPageStudent_BooksPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -47,6 +47,10 @@ public class BooksPage extends PageBase {
 
     @FindBy (className = "modal-content")
     public WebElement addBookWindow;
+
+
+    @FindBy(linkText = "Books" )
+    public WebElement booksPageLink;
 
 
 
