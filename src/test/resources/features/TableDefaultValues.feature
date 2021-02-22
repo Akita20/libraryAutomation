@@ -1,8 +1,9 @@
 Feature: Default values of the table
-@wip
+
+  @wip
   Scenario: Table columns names
 
-    Given the user on the homepage
+    Given I login as a student
     Then the user should see the following column names:
       | Actions     |
       | ISBN        |

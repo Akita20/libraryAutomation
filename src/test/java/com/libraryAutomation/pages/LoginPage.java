@@ -23,14 +23,12 @@ public class LoginPage {
     public WebElement signInButton;
 
     public void login(String username, String password) {
-        driver.get(ConfigurationReader.getProperty("url"));
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         signInButton.click();
 
     }
     public void loginAsLibrary() {
-        driver.get(ConfigurationReader.getProperty("url"));
         String username = ConfigurationReader.getProperty("libUserName");
         String password = ConfigurationReader.getProperty("libPassword");
         usernameInput.sendKeys(username);
@@ -39,7 +37,6 @@ public class LoginPage {
 
     }
     public void loginAsStudent() {
-        driver.get(ConfigurationReader.getProperty("url"));
         String username = ConfigurationReader.getProperty("stuUserName11");
         String password = ConfigurationReader.getProperty("stuPassword11");
         usernameInput.sendKeys(username);
