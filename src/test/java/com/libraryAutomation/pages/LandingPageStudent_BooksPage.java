@@ -8,9 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class LandingPageStudent_BooksPage extends PageBase {
-    public LandingPageStudent_BooksPage(){
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
 
     @FindBy(id="book_categories")
     public WebElement selectBookCategories;

@@ -9,9 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends PageGenerator {
     WebDriver driver =Driver.getDriver();
-    public LoginPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
 
     @FindBy(id = "login-form")
     public WebElement loginPage;

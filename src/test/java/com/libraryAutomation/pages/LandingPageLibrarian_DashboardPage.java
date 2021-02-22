@@ -7,10 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LandingPageLibrarian_DashboardPage extends PageBase{
 
-    public LandingPageLibrarian_DashboardPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
-
     @FindBy(id = "user_count")
     public WebElement userCount;
 
