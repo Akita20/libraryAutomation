@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-public class Login_StepDefinitions {
+public class Login_StepDefinitions1 {
 
     LoginPage loginPage = new LoginPage();
 
@@ -17,8 +17,8 @@ public class Login_StepDefinitions {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    @Given("I login as a librarian")
-    public void i_login_as_a_librarian() {
+    @Given("I login as a librarian1")
+    public void i_login_as_a_librarian1() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         loginPage.loginAsLibrary();
 
@@ -28,8 +28,8 @@ public class Login_StepDefinitions {
 
     }
 
-    @Given("I login as a student")
-    public void i_login_as_a_student() {
+    @Given("I login as a student1")
+    public void i_login_as_a_student1() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         loginPage.loginAsStudent();
 
