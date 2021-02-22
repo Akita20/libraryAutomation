@@ -29,7 +29,6 @@ public class GroupCatogory_Definition extends UsersPage {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
      loginPage.loginAsLibrary();
         BrowserUtils.waitForVisibility(landingPage.dashboardPageLink,3);
-
     }
 
 
