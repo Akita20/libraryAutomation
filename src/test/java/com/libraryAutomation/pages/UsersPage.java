@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class UsersPage extends PageBase{
+public class UsersPage extends LandingPage{
     public UsersPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
@@ -21,6 +21,8 @@ public class UsersPage extends PageBase{
     @FindBy(id= "user_groups")
     public WebElement userGroup;
 
+    @FindBy (xpath = "//select[@id='user_groups']")
+    public WebElement usersGroupDropdown;
 
     @FindBy(id= "tbl_users_processing")
     public WebElement search;
