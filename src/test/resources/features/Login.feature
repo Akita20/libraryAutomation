@@ -32,4 +32,12 @@ Feature:Login to the Library page Funtionality
       | librarian50@library | kAbC7Ybl |
 
 
+  @librarian
+  Scenario: Login as a librarian
+    Given I login as a librarian
+
+  @student
+  Scenario: Login as student
+    Given I login as a student
+
 ##
