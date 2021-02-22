@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login_Logout_StepDefinition extends PageBase {
+
     LoginPage loginPage = new LoginPage();
     LandingPage landingPage = new LandingPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
@@ -23,8 +24,8 @@ public class Login_Logout_StepDefinition extends PageBase {
 
     @Given("the student login with {string} and {string}")
     public void the_student_login_with_and(String userName, String passWord) {
-        loginPage.usernameInput.sendKeys(ConfigurationReader.getProperty(userName));
-        loginPage.passwordInput.sendKeys(ConfigurationReader.getProperty(passWord));
+        loginPage.usernameInput.sendKeys(userName);
+        loginPage.passwordInput.sendKeys(passWord);
         loginPage.signInButton.click();
     }
 

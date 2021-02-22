@@ -1,4 +1,3 @@
-
 Feature:Login to the Library page Funtionality
 
 
@@ -11,17 +10,16 @@ Feature:Login to the Library page Funtionality
 
 
     Examples:
-      | username      | password      |
-      | stuUserName11 | stuPassword11 |
-      | stuUserName12 | stuPassword12 |
-      | stuUserName13 | stuPassword13 |
+      | username      | password  |
+      | student11@library | tScBPCUr |
+      | student12@library | UC0LC9Hj  |
+      | student13@library | zcVbvUWH  |
 
 
   @librarian
   Scenario Outline: Verify librarian login
     Given the librarian login with "<username>" and "<password>"
     And  user should see the Dashboard  in the  page
-
 
 
     Examples:
@@ -32,4 +30,5 @@ Feature:Login to the Library page Funtionality
       | librarian50@library | kAbC7Ybl |
 
 
-##
+
+
