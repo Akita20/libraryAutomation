@@ -38,7 +38,7 @@ public class BookCategories_StepDefinitions {
         select.selectByVisibleText(category);
         select=new Select(booksPage.showRecords);
         BrowserUtils.waitForVisibility(booksPage.showRecords,20);
-        select.selectByVisibleText("500");
+        select.selectByVisibleText("100");
 
 
     }
