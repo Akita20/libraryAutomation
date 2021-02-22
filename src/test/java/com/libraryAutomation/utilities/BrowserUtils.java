@@ -64,6 +64,9 @@ public class BrowserUtils {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
 
     }
-
+    public static void waitUntilUrl(String expectedTextInUrl){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.urlContains(expectedTextInUrl));
+    }
 
 }
