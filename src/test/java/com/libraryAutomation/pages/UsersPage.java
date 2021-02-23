@@ -8,9 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class UsersPage extends PageBase {
-    public UsersPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+
 
     @FindBy(xpath = "//select[@name='tbl_users_length']")
     public WebElement showRecordsDropdown;
@@ -52,6 +50,33 @@ public class UsersPage extends PageBase {
 
     @FindBy(xpath = "//h5[.='Edit User Information']")
     public WebElement editUserInformationHeader;
+
+    @FindBy(name = "full_name")
+    public WebElement inputFullName;
+
+    @FindBy(name = "password")
+    public WebElement inputPassword;
+
+    @FindBy(name = "email")
+    public WebElement inputEmail;
+
+    @FindBy(id ="user_group_id" )
+    public WebElement selectUserGroup;
+
+    @FindBy(id = "status")
+    public WebElement selectStatus;
+
+    @FindBy(name = "start_date")
+    public WebElement inputStartDate;
+
+    @FindBy(name = "end_date")
+    public WebElement inputEndDate;
+
+    @FindBy(id ="address" )
+    public WebElement inputAdress;
+
+
+
 
 
 }
