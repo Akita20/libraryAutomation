@@ -11,8 +11,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-public class LoginAndLogOut_StepDefinition {
-    WebDriver driver = Driver.getDriver();
+public class LoginAndLogOut_StepDefinition extends WebDriverManager{
+
     LoginPage loginPage = new LoginPage();
     BooksPage booksPage = new BooksPage();
     LandingPage landing=new LandingPage();
