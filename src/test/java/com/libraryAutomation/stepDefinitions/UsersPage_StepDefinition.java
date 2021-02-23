@@ -9,7 +9,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 
 public class UsersPage_StepDefinition {
     UsersPage user = new UsersPage();
@@ -51,8 +50,19 @@ public class UsersPage_StepDefinition {
 
     @Then("user will be able to see in user page the added user")
     public void user_will_be_able_to_see_in_user_page_the_added_user() {
-        BrowserUtils.sendTheKeys(user.search,Memory.retrieveValue("name"));
-        Assert.assertEquals(Memory.retrieveValue("name"), BrowserUtils.waitForVisibility(user.fullName,15).getText());
+        BrowserUtils.waitForVisibility(user.search,15);
+        user.search.sendKeys(Memory.retrieveValue("name"));
+        Assert.assertEquals(Memory.retrieveValue("name"), BrowserUtils.waitForVisibility(user.fullName, 15).getText());
         Memory.refresh();
+    }
+
+    @Then("user clicks to cancel, the form is cancelled")
+    public void userClicksToCancelTheFormIsCancelled() {
+        add_editUserPage.buttonCancelClick();
+    }
+
+    @When("user clicks to edit button for desired {string}")
+    public void userClicksToEditButtonForDesired(String name) {
+        user.selectUserToEdit(name);
     }
 }

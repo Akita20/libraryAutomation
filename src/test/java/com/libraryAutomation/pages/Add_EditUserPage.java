@@ -69,18 +69,19 @@ public class Add_EditUserPage extends UsersPage {
         inputAdress.sendKeys(address);
         buttonSaveChanges.click();
         Memory.saveValue("name", name);
-        System.out.println(startDate+"  -->"+endDate);
+
 
     }
 
+
     public void buttonCancelClick() {
         buttonCancel.click();
-        Assert.assertTrue(BrowserUtils.waitForInVisibility(addOrEditForm, 15));
+        Assert.assertTrue("Couldnt cancel the add or edit user",BrowserUtils.waitForInVisibility(addOrEditForm, 15));
     }
 
     public void searchAddedUser() {
         search.sendKeys(Memory.retrieveValue("name") + Keys.ENTER);
-        Assert.assertEquals(Memory.retrieveValue("name"), fullName.getText());
+        Assert.assertEquals("couldnt find the added user",Memory.retrieveValue("name"), fullName.getText());
         Memory.refresh();
     }
 

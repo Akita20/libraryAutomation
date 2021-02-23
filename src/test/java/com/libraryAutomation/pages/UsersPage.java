@@ -1,15 +1,12 @@
 package com.libraryAutomation.pages;
 
-import com.github.javafaker.Faker;
 import com.libraryAutomation.utilities.BrowserUtils;
-import org.openqa.selenium.Keys;
+import com.libraryAutomation.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class UsersPage extends PageBase {
 
@@ -55,7 +52,16 @@ public class UsersPage extends PageBase {
     @FindBy(xpath = "//h5[.='Edit User Information']")
     public WebElement editUserInformationHeader;
 
+    @FindBy(xpath = "//td[3]")
+    public List<WebElement> allNames;
 
+    String locator = "(//td[3])[%s]/../td[1]";
+
+    public void selectUserToEdit(String name) {
+        search.sendKeys(name);
+        BrowserUtils.clickOn(firstEditButton,15);
+
+    }
 
 
 }
