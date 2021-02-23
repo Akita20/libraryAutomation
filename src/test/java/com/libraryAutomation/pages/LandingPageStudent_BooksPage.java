@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class BooksPage extends PageBase {
-    public BooksPage(){
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+public class LandingPageStudent_BooksPage extends PageBase {
 
     @FindBy(id="book_categories")
     public WebElement selectBookCategories;
+
+    @FindBy(xpath = "//thead/tr/th")
+    public List<WebElement> header;
 
     @FindBy (xpath = "//th[@data-name='B.name']")
     public List<WebElement> listBookName;
@@ -44,6 +44,10 @@ public class BooksPage extends PageBase {
 
     @FindBy (className = "modal-content")
     public WebElement addBookWindow;
+
+
+    @FindBy(linkText = "Books" )
+    public WebElement booksPageLink;
 
 
 

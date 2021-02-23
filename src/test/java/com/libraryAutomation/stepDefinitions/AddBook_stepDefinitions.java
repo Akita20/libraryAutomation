@@ -1,6 +1,6 @@
 package com.libraryAutomation.stepDefinitions;
 
-import com.libraryAutomation.pages.BooksPage;
+import com.libraryAutomation.pages.LandingPageStudent_BooksPage;
 import com.libraryAutomation.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,42 +9,42 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Map;
 
 public class AddBook_stepDefinitions {
-    BooksPage booksPage = new BooksPage();
+    LandingPageStudent_BooksPage landingPageStudentBooksPage = new LandingPageStudent_BooksPage();
 
 
     @When("I click on books module")
     public void i_click_on_books_module() {
-      booksPage.booksPageLink.click();
+      landingPageStudentBooksPage.booksPageLink.click();
     }
 
     @When("I click on Add Book")
     public void i_click_on_add_book() {
-        BrowserUtils.waitForClickability(booksPage.buttonAddBook,7);
-        booksPage.buttonAddBook.click();
+        BrowserUtils.waitForClickability(landingPageStudentBooksPage.buttonAddBook,7);
+        landingPageStudentBooksPage.buttonAddBook.click();
 
     }
     @When("A new window for Add Book should open")
     public void a_new_window_for_add_book_should_open() {
-       BrowserUtils.waitForVisibility(booksPage.addBookWindow,10);
-        Assert.assertTrue(booksPage.addBookWindow.isDisplayed());
+       BrowserUtils.waitForVisibility(landingPageStudentBooksPage.addBookWindow,10);
+        Assert.assertTrue(landingPageStudentBooksPage.addBookWindow.isDisplayed());
 
     }
 
     @When("Enter Book Information")
     public void enter_book_information(Map<String,String> bookInfo) {
-        booksPage.inputBookName.sendKeys(bookInfo.get("bookName"));
-        booksPage.inputBookAuthor.sendKeys(bookInfo.get("author"));
-        booksPage.inputBookISBN.sendKeys(bookInfo.get("ISBN"));
-        booksPage.inputBookYear.sendKeys(bookInfo.get("year"));
-        booksPage.inputBookDescription.sendKeys(bookInfo.get("description"));
+        landingPageStudentBooksPage.inputBookName.sendKeys(bookInfo.get("bookName"));
+        landingPageStudentBooksPage.inputBookAuthor.sendKeys(bookInfo.get("author"));
+        landingPageStudentBooksPage.inputBookISBN.sendKeys(bookInfo.get("ISBN"));
+        landingPageStudentBooksPage.inputBookYear.sendKeys(bookInfo.get("year"));
+        landingPageStudentBooksPage.inputBookDescription.sendKeys(bookInfo.get("description"));
 
-        Select bookCategoryDropdown = new Select(booksPage.selectBookCategoriesAddBook);
+        Select bookCategoryDropdown = new Select(landingPageStudentBooksPage.selectBookCategoriesAddBook);
         bookCategoryDropdown.selectByVisibleText(bookInfo.get("bookCategory"));
     }
 
     @When("I click Save changes button")
     public void i_click_save_changes_button() {
-        booksPage.buttonBookSaveChanges.click();
+        landingPageStudentBooksPage.buttonBookSaveChanges.click();
 
     }
 
