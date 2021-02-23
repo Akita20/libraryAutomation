@@ -1,5 +1,5 @@
 Feature:
-
+@addUser
   Scenario: Adding users with valid info
     Given the librarian  is on users page
     When user clicks to add new user

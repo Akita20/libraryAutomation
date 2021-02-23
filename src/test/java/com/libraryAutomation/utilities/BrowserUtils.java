@@ -1,6 +1,5 @@
 package com.libraryAutomation.utilities;
 
-import com.libraryAutomation.utilities.enumOptions.Browser;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,7 +44,7 @@ public class BrowserUtils {
     }
 
     // The method takes an element and takes the text you want to send by waiting explicitly and returns text as a String
-    public static String sendTheKeys(WebElement element,  String text) {
+    public static String sendTheKeys(WebElement element, String text) {
         final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 7);
         wait.until(ExpectedConditions.refreshed(
                 ExpectedConditions.elementToBeClickable(element)));
@@ -57,6 +56,11 @@ public class BrowserUtils {
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static boolean waitForInVisibility(WebElement element, int timeToWaitInSec) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
+        return wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     // wait method for webElement until Clickable

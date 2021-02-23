@@ -1,11 +1,15 @@
 package com.libraryAutomation.pages;
 
-import com.libraryAutomation.utilities.Driver;
+import com.github.javafaker.Faker;
+import com.libraryAutomation.utilities.BrowserUtils;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class UsersPage extends PageBase {
 
@@ -20,7 +24,7 @@ public class UsersPage extends PageBase {
     public WebElement userGroup;
 
 
-    @FindBy(id = "tbl_users_processing")
+    @FindBy(xpath = "//input[@type='search']")
     public WebElement search;
 
 
@@ -30,11 +34,11 @@ public class UsersPage extends PageBase {
     @FindBy(xpath = "//th[@class='sorting_desc']")
     public WebElement userID;
 
-    @FindBy(xpath = "//th[@class='sorting_asc']")
+    @FindBy(xpath = "//tr/td[3]")
     public WebElement fullName;
 
     @FindBy(xpath = "/thead/tr/th[4]")
-    public WebElement email;
+    public WebElement emailInTable;
 
     @FindBy(xpath = "/thead/tr/th[5]")
     public WebElement group;
@@ -50,31 +54,6 @@ public class UsersPage extends PageBase {
 
     @FindBy(xpath = "//h5[.='Edit User Information']")
     public WebElement editUserInformationHeader;
-
-    @FindBy(name = "full_name")
-    public WebElement inputFullName;
-
-    @FindBy(name = "password")
-    public WebElement inputPassword;
-
-    @FindBy(name = "email")
-    public WebElement inputEmail;
-
-    @FindBy(id ="user_group_id" )
-    public WebElement selectUserGroup;
-
-    @FindBy(id = "status")
-    public WebElement selectStatus;
-
-    @FindBy(name = "start_date")
-    public WebElement inputStartDate;
-
-    @FindBy(name = "end_date")
-    public WebElement inputEndDate;
-
-    @FindBy(id ="address" )
-    public WebElement inputAdress;
-
 
 
 
