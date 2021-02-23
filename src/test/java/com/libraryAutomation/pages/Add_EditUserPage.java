@@ -37,7 +37,7 @@ public class Add_EditUserPage extends UsersPage {
     @FindBy(id = "address")
     public WebElement inputAdress;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[.='Save changes']")
     public WebElement buttonSaveChanges;
     @FindBy(xpath = "//button[@type='cancel']")
     public WebElement buttonCancel;
@@ -59,6 +59,7 @@ public class Add_EditUserPage extends UsersPage {
         Select select = new Select(selectUserGroup);
         Random rnd = new Random();
         inputFullName.sendKeys(name);
+        Memory.saveValue("name", name);
         inputPassword.sendKeys(password);
         inputEmail.sendKeys(email);
         select.selectByIndex(rnd.nextInt(1));
@@ -67,8 +68,11 @@ public class Add_EditUserPage extends UsersPage {
         inputStartDate.sendKeys(Keys.BACK_SPACE + startDate);
         inputEndDate.sendKeys(Keys.BACK_SPACE + endDate);
         inputAdress.sendKeys(address);
-        buttonSaveChanges.click();
-        Memory.saveValue("name", name);
+
+        BrowserUtils.clickOn(buttonSaveChanges,15);
+
+
+
 
 
     }

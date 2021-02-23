@@ -45,9 +45,9 @@ public class BrowserUtils {
 
     // The method takes an element and takes the text you want to send by waiting explicitly and returns text as a String
     public static String sendTheKeys(WebElement element, String text) {
-        final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 7);
+        final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
         wait.until(ExpectedConditions.refreshed(
-                ExpectedConditions.elementToBeClickable(element)));
+                ExpectedConditions.visibilityOf(element)));
         element.sendKeys(text);
         return text;
     }
