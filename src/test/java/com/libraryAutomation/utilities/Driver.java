@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class Driver {
     private static final ThreadLocal<WebDriver> driverPoll = new ThreadLocal<>();
 
-    public static WebDriver getDriver() {
+    public static synchronized WebDriver getDriver() {
         if (driverPoll.get() == null) {
             Browser browser = Browser.valueOf(ConfigurationReader.getProperty("browser"));
             switch (browser) {
