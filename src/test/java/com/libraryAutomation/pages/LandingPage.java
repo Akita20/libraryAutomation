@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class LandingPage extends PageBase{
+public class LandingPage extends PageBase {
 
     @FindBy(xpath = "//a[@id='navbarDropdown']/span")
     public WebElement accountUserName;
@@ -16,6 +16,5 @@ public class LandingPage extends PageBase{
     @FindBy(id = "user_count")
     public WebElement userCount;
 
-   ;
 
 }

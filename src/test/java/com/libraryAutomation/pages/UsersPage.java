@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Random;
 
 public class UsersPage extends PageBase {
 
@@ -49,6 +50,9 @@ public class UsersPage extends PageBase {
     @FindBy(xpath = "//tbody/tr/td")
     public WebElement firstEditButton;
 
+    @FindBy(xpath = "//td[1]")
+    public List<WebElement> editButtons;
+
     @FindBy(xpath = "//h5[.='Edit User Information']")
     public WebElement editUserInformationHeader;
 
@@ -61,6 +65,10 @@ public class UsersPage extends PageBase {
         search.sendKeys(name);
         BrowserUtils.clickOn(firstEditButton,15);
 
+    }
+    public void selectingRandomEdit(){
+        Random rnd=new Random();
+        editButtons.get(rnd.nextInt(editButtons.size()-1)).click();
     }
 
 

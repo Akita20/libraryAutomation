@@ -37,8 +37,9 @@ public class Add_EditUserPage extends UsersPage {
     @FindBy(id = "address")
     public WebElement inputAdress;
 
-    @FindBy(xpath = "//button[.='Save changes']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement buttonSaveChanges;
+
     @FindBy(xpath = "//button[@type='cancel']")
     public WebElement buttonCancel;
 
@@ -47,7 +48,7 @@ public class Add_EditUserPage extends UsersPage {
 
 
     Faker faker = new Faker();
-    String name = faker.name().fullName();
+
     String password = faker.internet().password();
     String email = faker.internet().emailAddress();
     String startDate = faker.date().past(10, TimeUnit.DAYS).toString();
@@ -58,36 +59,52 @@ public class Add_EditUserPage extends UsersPage {
     public void addUser() {
         Select select = new Select(selectUserGroup);
         Random rnd = new Random();
+        inputFullName.clear();
+        String name = faker.name().fullName();
+        if(name.contains(".")){
+            name=name.substring(name.indexOf(".")+1);
+        }
         inputFullName.sendKeys(name);
+
         Memory.saveValue("name", name);
+        inputPassword.clear();
         inputPassword.sendKeys(password);
-        inputEmail.sendKeys(email);
+        inputEmail.clear();
+        inputEmail.sendKeys( email);
+        //BrowserUtils.waitForClickability(selectUserGroup,15);
         select.selectByIndex(rnd.nextInt(1));
         select = new Select(selectStatus);
+       // BrowserUtils.waitForClickability(selectStatus,15);
         select.selectByIndex(rnd.nextInt(1));
-        inputStartDate.sendKeys(Keys.BACK_SPACE + startDate);
-        inputEndDate.sendKeys(Keys.BACK_SPACE + endDate);
+        inputStartDate.clear();
+        inputStartDate.sendKeys(startDate);
+        inputEndDate.clear();
+        inputEndDate.sendKeys(endDate);
+        inputAdress.clear();
         inputAdress.sendKeys(address);
 
-        BrowserUtils.clickOn(buttonSaveChanges,15);
+       buttonSaveChanges.click();
 
-
-
+        BrowserUtils.waitForInVisibility(addOrEditForm, 15);
 
 
     }
 
 
     public void buttonCancelClick() {
-        buttonCancel.click();
-        Assert.assertTrue("Couldnt cancel the add or edit user",BrowserUtils.waitForInVisibility(addOrEditForm, 15));
+        BrowserUtils.waitForClickability(buttonCancel,15).click();
+        Assert.assertTrue("Couldnt cancel the add or edit user", BrowserUtils.waitForInVisibility(addOrEditForm, 15));
     }
 
     public void searchAddedUser() {
+        if (!search.getText().isEmpty()){
+            search.clear();
+        }
         search.sendKeys(Memory.retrieveValue("name") + Keys.ENTER);
-        Assert.assertEquals("couldnt find the added user",Memory.retrieveValue("name"), fullName.getText());
+        Assert.assertEquals("couldnt find the added user", Memory.retrieveValue("name"), fullName.getText());
         Memory.refresh();
     }
+
 
 
 }

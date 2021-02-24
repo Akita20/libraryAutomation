@@ -1,6 +1,8 @@
 package com.libraryAutomation.utilities;
 
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Memory {
@@ -14,7 +16,7 @@ public class Memory {
     private static Map<String, String> map;
 
    private static void initMemory() {
-        map = new Hashtable<>();
+        map = new LinkedHashMap<>();
     }
 
 

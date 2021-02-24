@@ -22,8 +22,6 @@ public abstract class PageBase extends PageGenerator {
     @FindBy(xpath = "//a[@class='dropdown-item']")
     public WebElement logOutButton;
 
-    protected PageBase() {
-    }
 
     public void navigatingThroughNavigationBar(String text) {
         for (WebElement element : navigationBar) {

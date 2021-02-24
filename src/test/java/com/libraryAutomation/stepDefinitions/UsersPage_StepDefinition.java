@@ -50,8 +50,9 @@ public class UsersPage_StepDefinition {
 
     @Then("user will be able to see in user page the added user")
     public void user_will_be_able_to_see_in_user_page_the_added_user() {
-        String name = BrowserUtils.sendTheKeys(user.search, Memory.retrieveValue("name"));
-        Assert.assertEquals(name, BrowserUtils.waitForVisibility(user.fullName, 15).getText());
+        BrowserUtils.sleep(3);
+        String name = BrowserUtils.sendTheKeys(BrowserUtils.fluentWait(user.search, 20), Memory.retrieveValue("name"));
+        Assert.assertEquals("The name does not match the editing wasn't successful",name, BrowserUtils.waitUntilCertainTextAppears(user.fullName,Memory.retrieveValue("name")).getText());
 
     }
 
@@ -63,5 +64,10 @@ public class UsersPage_StepDefinition {
     @When("user clicks to edit button for desired {string}")
     public void userClicksToEditButtonForDesired(String name) {
         user.selectUserToEdit(name);
+    }
+
+    @When("user clicks to edit button randomly from the list")
+    public void userClicksToEditButtonRandomlyFromTheList() {
+        user.selectingRandomEdit();
     }
 }
