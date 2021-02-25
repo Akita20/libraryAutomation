@@ -1,5 +1,6 @@
 Feature: Default values of the table
-@table
+
+  @table
   Scenario: Table columns names
 
     Given the user on the homepage
@@ -12,8 +13,17 @@ Feature: Default values of the table
       | Year        |
       | Borrowed By |
 
-    Scenario: the show records values
-      Given the user on the homepage
-      Then the show records dropdown default value should be 10
-      And the dropdown should have following options
+  @record
+  Scenario: the show records values
+    Given the user on the homepage
+    Then the show records dropdown default value should be 10
+    And the dropdown should have following options:
+
+      | 5     |
+      | 10    |
+      | 15    |
+      | 50    |
+      | 100   |
+      | 200   |
+      | 500   |
 

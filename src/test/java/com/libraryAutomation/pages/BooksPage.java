@@ -14,7 +14,13 @@ public class BooksPage extends PageBase {
     @FindBy(xpath = "//thead/tr/th")
     public List<WebElement> header;
 
+    @FindBy(xpath = "//section[@id='dashboard']")
+    public WebElement sectionDashboard;//used to verify that librarian land to dashboard
+
+
     @FindBy(xpath = "//section[@id='books']")
     public WebElement sectionBooks;//used to verify that student land on books page
 
+    @FindBy(name = "tbl_books_length")
+    public WebElement selectRecords;
 }

@@ -13,9 +13,6 @@ public abstract class PageBase extends PageGenerator {
     @FindBy(xpath = "//a[@id='navbarDropdown']/span")
     public WebElement accountUserName;
 
-    @FindBy(xpath = "//section[@id='dashboard']")
-    public  WebElement sectionDashboard;//used to verify that librarian land to dashboard
-
     @FindBy(xpath = "//a[@class='nav-link']/span[1]")
     public List<WebElement> navigationBar;//this does not include the avatar
 
