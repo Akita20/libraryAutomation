@@ -1,3 +1,4 @@
+@bookCat
 Feature: Filtering the books by their categories
   As a Student, I can filter the books by their categories,
   then I can see all the books from the same category only.
@@ -29,7 +30,7 @@ Feature: Filtering the books by their categories
       | Poetry                  |
 
 
-  @bookCat
+
   Scenario Outline: Student selects particular category from the dropdown
   and should see all the books from that category
     Given User logs in as Student

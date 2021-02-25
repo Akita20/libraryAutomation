@@ -37,6 +37,12 @@ public class BrowserUtils {
                 ExpectedConditions.elementToBeClickable(element)));
         element.click();
     }
+    public static void textToBePresent(WebElement element,  String text) {
+        final WebDriverWait wait = new WebDriverWait(Driver.getDriver(),20);
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.textToBePresentInElement(element, text)));
+        element.click();
+    }
 
     //this method accepts List<WebElement> and returns List<String>
     public static List<String> convertWebElementToString_andGetText(List<WebElement> elements) {

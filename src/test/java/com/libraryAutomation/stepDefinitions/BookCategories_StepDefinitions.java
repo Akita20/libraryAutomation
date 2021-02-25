@@ -34,7 +34,7 @@ public class BookCategories_StepDefinitions {
     @Then("Student selects {string} from category dropdown")
     public void student_selects_from_category_dropdown(String category) {
         Select select = new Select(booksPage.selectBookCategories);
-        BrowserUtils.clickOn(booksPage.selectBookCategories,15,category);
+        BrowserUtils.textToBePresent(booksPage.selectBookCategories,category);
         select.selectByVisibleText(category);
 
     }
