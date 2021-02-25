@@ -18,7 +18,8 @@ public class LoginPage extends PageGenerator  {
     public WebElement signInButton;
 
     public void login(String username, String password) {
-       usernameInput.sendKeys(username);
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         signInButton.click();
 
