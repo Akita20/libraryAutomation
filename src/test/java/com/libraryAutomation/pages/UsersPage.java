@@ -15,7 +15,7 @@ public class UsersPage extends PageBase {
     @FindBy(xpath = "//select[@name='tbl_users_length']")
     public WebElement showRecordsDropdown;
 
-    @FindBy(xpath = "//a[@class='btn btn-lg btn-outline btn-primary btn-sm']")
+    @FindBy(xpath = "//section[@id='users']/div/div/span/a")
     public WebElement addUser;
 
     @FindBy(id = "user_groups")

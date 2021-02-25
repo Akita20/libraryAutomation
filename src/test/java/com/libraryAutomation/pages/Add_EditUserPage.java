@@ -72,7 +72,8 @@ public class Add_EditUserPage extends UsersPage {
         inputEmail.clear();
         inputEmail.sendKeys( email);
         //BrowserUtils.waitForClickability(selectUserGroup,15);
-        select.selectByValue((String.valueOf(rnd.nextInt((4-2+1))+1)));
+
+        select.selectByVisibleText("Librarian");
         select = new Select(selectStatus);
        // BrowserUtils.waitForClickability(selectStatus,15);
         select.selectByIndex(rnd.nextInt(2-1)+1);
