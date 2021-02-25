@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.List;
+
 public class UsersPage_StepDefinition {
     UsersPage user = new UsersPage();
     Add_EditUserPage add_editUserPage = new Add_EditUserPage();
@@ -50,10 +52,18 @@ public class UsersPage_StepDefinition {
 
     @Then("user will be able to see in user page the added user")
     public void user_will_be_able_to_see_in_user_page_the_added_user() {
-        BrowserUtils.sleep(3);
-        String name = BrowserUtils.sendTheKeys(BrowserUtils.fluentWait(user.search, 20), Memory.retrieveValue("name"));
-        BrowserUtils.waitUntilCertainTextAppears(user.fullName, name);
-        Assert.assertEquals("The name does not match the editing/adding wasn't successful", name, user.fullName.getText());
+
+        List<String> names= BrowserUtils.convertWebElementToString_andGetText(user.listOfNames);
+
+        for (String name : names) {
+           if(name.equals(Memory.retrieveValue("name"))){
+               Assert.assertEquals(name,Memory.retrieveValue("name"));
+           }
+
+        }
+//        String name = BrowserUtils.sendTheKeys(BrowserUtils.fluentWait(user.search, 20), Memory.retrieveValue("name"));
+//        BrowserUtils.waitUntilCertainTextAppears(user.fullName, name);
+//        Assert.assertEquals("The name does not match the editing/adding wasn't successful", name, user.fullName.getText());
 
     }
 

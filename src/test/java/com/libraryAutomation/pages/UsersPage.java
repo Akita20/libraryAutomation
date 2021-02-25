@@ -21,6 +21,9 @@ public class UsersPage extends PageBase {
     @FindBy(id = "user_groups")
     public WebElement userGroup;
 
+    @FindBy(xpath = "//td[3]")
+    public List<WebElement> listOfNames;
+
 
     @FindBy(xpath = "//input[@type='search']")
     public WebElement search;
