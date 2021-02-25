@@ -61,9 +61,9 @@ public class Add_EditUserPage extends UsersPage {
         Random rnd = new Random();
         inputFullName.clear();
         String name = faker.name().fullName();
-        if(name.contains(".")){
-            name=name.substring(name.indexOf(".")+1);
-        }
+//        if(name.contains(".")){
+//            name=name.substring(name.indexOf(".")+1);
+//        }
         inputFullName.sendKeys(name);
 
         Memory.saveValue("name", name);
@@ -72,10 +72,10 @@ public class Add_EditUserPage extends UsersPage {
         inputEmail.clear();
         inputEmail.sendKeys( email);
         //BrowserUtils.waitForClickability(selectUserGroup,15);
-        select.selectByIndex(rnd.nextInt(1));
+        select.selectByValue((String.valueOf(rnd.nextInt((4-2+1))+1)));
         select = new Select(selectStatus);
        // BrowserUtils.waitForClickability(selectStatus,15);
-        select.selectByIndex(rnd.nextInt(1));
+        select.selectByIndex(rnd.nextInt(2-1)+1);
         inputStartDate.clear();
         inputStartDate.sendKeys(startDate);
         inputEndDate.clear();
