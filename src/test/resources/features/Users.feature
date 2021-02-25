@@ -16,7 +16,7 @@ Feature:
     Then user will be able to see in user page the added user
 
   @wip
-  Scenario: Canceling user
+  Scenario: Close the add_edit Form
     Given the librarian  is on users page
     When user clicks to add new user
     Then user clicks to cancel, the form is cancelled

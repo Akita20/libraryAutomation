@@ -43,7 +43,7 @@ public class UsersPage_StepDefinition {
 
     @When("user enters valid info and clicks add user")
     public void user_enters_valid_info_and_clicks_add_user() {
-        add_editUserPage.addUser();
+        add_editUserPage.addOrEditUser();
 
 
     }
@@ -52,8 +52,8 @@ public class UsersPage_StepDefinition {
     public void user_will_be_able_to_see_in_user_page_the_added_user() {
         BrowserUtils.sleep(3);
         String name = BrowserUtils.sendTheKeys(BrowserUtils.fluentWait(user.search, 20), Memory.retrieveValue("name"));
-      //  BrowserUtils.waitUntilCertainTextAppears(user.fullName, name);
-        Assert.assertEquals("The name does not match the editing wasn't successful", name, user.fullName.getText());
+        BrowserUtils.waitUntilCertainTextAppears(user.fullName, name);
+        Assert.assertEquals("The name does not match the editing/adding wasn't successful", name, user.fullName.getText());
 
     }
 

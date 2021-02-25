@@ -56,7 +56,7 @@ public class Add_EditUserPage extends UsersPage {
     String address = faker.address().fullAddress();
 
 
-    public void addUser() {
+    public void addOrEditUser() {
         Select select = new Select(selectUserGroup);
         Random rnd = new Random();
         inputFullName.clear();
