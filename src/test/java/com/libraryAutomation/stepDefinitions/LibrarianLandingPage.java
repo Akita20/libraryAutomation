@@ -27,6 +27,7 @@ public class LibrarianLandingPage extends PageBase {
 
     @Then("the user should see following modules in books Page")
     public void theUserShouldSeeFollowingModulesInBooksPage(List<String>headers) {
+        BrowserUtils.waitForVisibility(navigationBar,15);
         Assert.assertEquals(headers, BrowserUtils.convertWebElementToString_andGetText(navigationBar));
 
     }

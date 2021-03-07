@@ -28,12 +28,14 @@ public class BooksTable_StepDefinitions {
 
     @Then("the user should see the following column names:")
     public void the_user_should_see_the_following_column_names(List<String> expectedheaderText) {
+        BrowserUtils.waitForVisibility(books.header,15);
         List<String>actualHeaderText=BrowserUtils.convertWebElementToString_andGetText(books.header);
         Assert.assertEquals(expectedheaderText, actualHeaderText);
     }
 
     @Then("the show records dropdown default value should be {int}")
     public void theShowRecordsDropdownDefaultValueShouldBe(int expectedDefaultValue) {
+        BrowserUtils.waitForVisibility(books.selectRecords,15);
         Select select=new Select(books.selectRecords);
         Assert.assertEquals(expectedDefaultValue,Integer.parseInt(select.getFirstSelectedOption().getText()));
     }

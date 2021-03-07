@@ -24,8 +24,11 @@ public abstract class PageBase extends PageGenerator {
         for (WebElement element : navigationBar) {
             if (element.getText().equalsIgnoreCase(text)) {
                 element.click();
+
             }
         }
+
+
     }
 
     public void logOut() {

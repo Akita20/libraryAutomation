@@ -1,5 +1,6 @@
 package com.libraryAutomation.pages;
 
+import com.libraryAutomation.utilities.BrowserUtils;
 import com.libraryAutomation.utilities.ConfigurationReader;
 import com.libraryAutomation.utilities.Driver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,10 @@ public class LoginPage extends PageGenerator  {
     public WebElement passwordInput;
     @FindBy(xpath = "//button[.='Sign in']")
     public WebElement signInButton;
+
+    public WebElement getSignInButton(){
+        return BrowserUtils.waitForVisibility(signInButton,20);
+    }
 
     public void login(String username, String password) {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));

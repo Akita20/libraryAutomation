@@ -20,8 +20,8 @@ public class UsersPage_StepDefinition {
     @Given("the librarian  is on users page")
     public void the_librarian_is_on_users_page() {
         loginPage.loginAsLibrary();
+        BrowserUtils.sleep(3);
         user.navigatingThroughNavigationBar("users");
-
     }
 
 
@@ -39,6 +39,7 @@ public class UsersPage_StepDefinition {
 
     @When("user clicks to add new user")
     public void user_clicks_to_add_new_user() {
+        BrowserUtils.waitForVisibility(user.addUser,15);
         user.addUser.click();
     }
 
@@ -67,8 +68,8 @@ public class UsersPage_StepDefinition {
 
     }
 
-    @Then("user clicks to cancel, the form is cancelled")
-    public void userClicksToCancelTheFormIsCancelled() {
+    @Then("user clicks to close, the form is closed")
+    public void userClicksToCloseTheFormIsClosed() {
         add_editUserPage.buttonCancelClick();
     }
 

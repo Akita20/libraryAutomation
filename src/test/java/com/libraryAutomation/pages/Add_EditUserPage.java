@@ -48,7 +48,7 @@ public class Add_EditUserPage extends UsersPage {
 
 
     Faker faker = new Faker();
-
+    String name = faker.name().fullName();
     String password = faker.internet().password();
     String email = faker.internet().emailAddress();
     String startDate = faker.date().past(10, TimeUnit.DAYS).toString();
@@ -57,10 +57,11 @@ public class Add_EditUserPage extends UsersPage {
 
 
     public void addOrEditUser() {
+        BrowserUtils.waitForVisibility(selectUserGroup,15);
         Select select = new Select(selectUserGroup);
         Random rnd = new Random();
         inputFullName.clear();
-        String name = faker.name().fullName();
+
 //        if(name.contains(".")){
 //            name=name.substring(name.indexOf(".")+1);
 //        }
@@ -76,7 +77,7 @@ public class Add_EditUserPage extends UsersPage {
         select.selectByVisibleText("Librarian");
         select = new Select(selectStatus);
        // BrowserUtils.waitForClickability(selectStatus,15);
-        select.selectByIndex(rnd.nextInt(2-1)+1);
+        select.selectByIndex(rnd.nextInt(1)+1);
         inputStartDate.clear();
         inputStartDate.sendKeys(startDate);
         inputEndDate.clear();

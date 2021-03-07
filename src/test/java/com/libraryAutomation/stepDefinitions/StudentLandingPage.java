@@ -21,6 +21,7 @@ LoginPage loginPage=new LoginPage();
 
     @Then("the user should see following modules in dashboard page")
     public void theUserShouldSeeFollowingModulesInDashboardPage(List<String> headers) {
+        BrowserUtils.waitForVisibility(navigationBar,15);
         Assert.assertEquals(headers, BrowserUtils.convertWebElementToString_andGetText(navigationBar));
 
     }

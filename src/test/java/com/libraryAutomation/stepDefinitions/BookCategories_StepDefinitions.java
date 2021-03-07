@@ -19,7 +19,7 @@ public class BookCategories_StepDefinitions {
     public void user_logs_in_as_student() {
         LoginPage loginPage = new LoginPage();
         loginPage.loginAsStudent();
-        booksPage.booksPageLink.click();
+        booksPage.navigatingThroughNavigationBar("books");
     }
 
     @Then("Student should see below info in book categories dropdown")
@@ -33,6 +33,7 @@ public class BookCategories_StepDefinitions {
 
     @Then("Student selects {string} from category dropdown")
     public void student_selects_from_category_dropdown(String category) {
+        BrowserUtils.waitForVisibility(booksPage.selectBookCategories,15);
         Select select = new Select(booksPage.selectBookCategories);
         BrowserUtils.textToBePresent(booksPage.selectBookCategories,category);
         select.selectByVisibleText(category);

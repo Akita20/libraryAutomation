@@ -70,6 +70,7 @@ public class UsersPage extends PageBase {
 
     }
     public void selectingRandomEdit(){
+        BrowserUtils.waitForVisibility(editButtons,15);
         Random rnd=new Random();
         editButtons.get(rnd.nextInt(editButtons.size()-1)).click();
     }

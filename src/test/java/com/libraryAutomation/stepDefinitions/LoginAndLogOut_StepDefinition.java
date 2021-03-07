@@ -33,9 +33,11 @@ public class LoginAndLogOut_StepDefinition extends WebDriverManager{
     public void theUserOn(String landingPage) {
         switch (landingPage) {
             case "books":
+                BrowserUtils.waitForVisibility(booksPage.sectionBooks,15);
                 Assert.assertEquals(booksPage.sectionBooks.getAttribute("id"), landingPage);
                 break;
             case "dashboard":
+                BrowserUtils.waitForVisibility(booksPage.sectionDashboard,15);
                 Assert.assertEquals(booksPage.sectionDashboard.getAttribute("id"), landingPage);
                 break;
         }

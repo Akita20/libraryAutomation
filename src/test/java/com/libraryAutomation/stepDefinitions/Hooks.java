@@ -9,8 +9,9 @@ public class Hooks {
 
     @After
     public void tearDown(Scenario scenario){
-        byte[]screenshot=((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+
         if(scenario.isFailed()){
+            byte[]screenshot=((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png",scenario.getName());
         }
       Driver.closeDriver();

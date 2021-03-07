@@ -19,7 +19,7 @@ Feature:
   Scenario: Close the add_edit Form
     Given the librarian  is on users page
     When user clicks to add new user
-    Then user clicks to cancel, the form is cancelled
+    Then user clicks to close, the form is closed
 
 #  @edit @wip
 #  Scenario: Editing User
