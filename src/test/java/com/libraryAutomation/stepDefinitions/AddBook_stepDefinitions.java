@@ -14,24 +14,25 @@ public class AddBook_stepDefinitions {
 
     @When("I click on books module")
     public void i_click_on_books_module() {
-      landingPageStudentBooksPage.booksPageLink.click();
+        landingPageStudentBooksPage.booksPageLink.click();
     }
 
     @When("I click on Add Book")
     public void i_click_on_add_book() {
-        BrowserUtils.waitForClickability(landingPageStudentBooksPage.buttonAddBook,7);
+        BrowserUtils.waitForClickability(landingPageStudentBooksPage.buttonAddBook, 7);
         landingPageStudentBooksPage.buttonAddBook.click();
 
     }
+
     @When("A new window for Add Book should open")
     public void a_new_window_for_add_book_should_open() {
-       BrowserUtils.waitForVisibility(landingPageStudentBooksPage.addBookWindow,10);
+        BrowserUtils.waitForVisibility(landingPageStudentBooksPage.addBookWindow, 10);
         Assert.assertTrue(landingPageStudentBooksPage.addBookWindow.isDisplayed());
 
     }
 
     @When("Enter Book Information")
-    public void enter_book_information(Map<String,String> bookInfo) {
+    public void enter_book_information(Map<String, String> bookInfo) {
         landingPageStudentBooksPage.inputBookName.sendKeys(bookInfo.get("bookName"));
         landingPageStudentBooksPage.inputBookAuthor.sendKeys(bookInfo.get("author"));
         landingPageStudentBooksPage.inputBookISBN.sendKeys(bookInfo.get("ISBN"));
@@ -52,6 +53,4 @@ public class AddBook_stepDefinitions {
     public void user_verifies_is_in_the_list(String string) {
 
     }
-
-
 }

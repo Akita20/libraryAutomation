@@ -19,5 +19,4 @@ public class LandingPageLibrarian_DashboardPage extends PageBase{
     @FindBy(linkText = "Users")
     public WebElement usersPageLink;
 
-
 }
