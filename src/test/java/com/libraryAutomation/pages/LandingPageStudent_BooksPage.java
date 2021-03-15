@@ -1,16 +1,22 @@
 package com.libraryAutomation.pages;
 
+import com.libraryAutomation.utilities.BrowserUtils;
 import com.libraryAutomation.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LandingPageStudent_BooksPage extends PageBase {
 
     @FindBy(id="book_categories")
     public WebElement selectBookCategories;
+
+    @FindBy(xpath = "//table//tr//td[5]")
+    public List<WebElement> listOfSelectedCategories;
 
     @FindBy(xpath = "//thead/tr/th")
     public List<WebElement> header;
@@ -45,9 +51,26 @@ public class LandingPageStudent_BooksPage extends PageBase {
     @FindBy (className = "modal-content")
     public WebElement addBookWindow;
 
-
     @FindBy(linkText = "Books" )
     public WebElement booksPageLink;
+
+    public List<String> getAllBookCategories(){
+        List<String> categories = new ArrayList<>();
+        Select select = new Select(selectBookCategories);
+        select.getOptions().forEach(p -> categories.add(p.getText()));
+        return categories;
+    }
+
+    public void selectCategory(String category){
+        Select select = new Select(selectBookCategories);
+        BrowserUtils.clickOn(selectBookCategories, 10);
+        select.selectByVisibleText(category);
+    }
+
+    public String getSelectedCategory(){
+        Select select = new Select(selectBookCategories);
+        return select.getFirstSelectedOption().getText();
+    }
 
 
 
