@@ -46,7 +46,6 @@ public class GroupCatogory_Definition extends UsersPageLibrarianDashboardPage {
     @Then("the user should see the following options:")
     public void the_user_should_see_the_following_options(List<String> options) {
 
-
         //Basically we are comparing  list of strings and webElements
         //expected: List<String> expectedList
         //actual : BrowserUtils.getElementsText(monthDropdown.getOptions()) --> Returns List <String>
