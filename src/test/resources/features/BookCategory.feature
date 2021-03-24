@@ -2,7 +2,7 @@ Feature: Filtering the books by their categories
   As a Student, I can filter the books by their categories,
   then I can see all the books from the same category only.
 
-  @bookCat
+  @smoke @bookCat
   Scenario: Student should be able to see all categories from Book Categories dropdown
     Given User logs in as Student
     Then Student should see below info in book categories dropdown

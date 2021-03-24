@@ -1,7 +1,7 @@
 Feature: Add book to inventory
   As a librarian, I should be able to add and edit books in to the inventory
 
-  @AddBook
+  @smoke
   Scenario: Librarian should be able to add a book
     Given I login as a librarian
     When I click on books module
