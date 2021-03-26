@@ -1,6 +1,6 @@
 Feature: Default values of the table
 
-  @wip
+  @regression@wip
   Scenario: Table columns names
 
     Given I login as a student

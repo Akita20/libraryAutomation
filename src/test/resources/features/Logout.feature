@@ -1,7 +1,7 @@
-Feature: 
+Feature:
 
 
-  @G23-109
+  @regression@G23-109
   Scenario Outline: user should be able to logout
     Given the user login with "<username>" and "<password>"
     When user click the logout button

@@ -4,7 +4,7 @@ Feature:Login to the Library page Funtionality
 
   Background: User already on login page
 
-  @Student
+  @regression@smoke@Student
   Scenario Outline: Verify students login
     Given the student login with "<username>" and "<password>"
     And books is student in the student page
@@ -17,7 +17,7 @@ Feature:Login to the Library page Funtionality
       | stuUserName13 | stuPassword13 |
 
 
-  @librarian
+  @regression@smoke@librarian
   Scenario Outline: Verify librarian login
     Given the librarian login with "<username>" and "<password>"
     And  user should see the Dashboard  in the  page
@@ -32,11 +32,11 @@ Feature:Login to the Library page Funtionality
       | librarian50@library | kAbC7Ybl |
 
 
-  @librarian
+  @regression@smoke@librarian
   Scenario: Login as a librarian
     Given I login as a librarian
 
-  @student
+  @regression@smoke@student
   Scenario: Login as student
     Given I login as a student
 
